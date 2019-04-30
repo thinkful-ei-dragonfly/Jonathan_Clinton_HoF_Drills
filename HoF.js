@@ -68,3 +68,26 @@ function turtleMovement(arr) {
 }
 
 console.log(turtleMovement([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
+
+function decoder(string) {
+    //Splitting into an array correctly
+    const arr = string.split(' ');
+
+  let result = arr.reduce(function reducer(acc, currentValue){
+
+    if(currentValue.length === 3) {
+      acc.concat(' ');
+      //console.log(acc);
+    }
+
+    else {
+        console.log(currentValue[currentValue.length - 1]);
+      acc.concat(currentValue[currentValue.length - 1]);
+      console.log(acc);
+    }
+
+  }, '');
+  return result;
+}
+
+console.log(decoder('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
