@@ -72,22 +72,23 @@ console.log(turtleMovement([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]])
 function decoder(string) {
     //Splitting into an array correctly
     const arr = string.split(' ');
-
-  let result = arr.reduce(function reducer(acc, currentValue){
-
-    if(currentValue.length === 3) {
-      acc.concat(' ');
-      //console.log(acc);
+    return arr.reduce((acc, currentValue) => {
+        if(currentValue.length === 3){
+            return acc + ' ';
+        }
+        else{
+            return acc + currentValue[currentValue.length - 1].toUpperCase();
+        }
+    },'')
+    /*const reducer = function (acc, currentValue) {
+        if (currentValue.length === 3){
+        return acc.concat(' ');
     }
-
-    else {
-        console.log(currentValue[currentValue.length - 1]);
-      acc.concat(currentValue[currentValue.length - 1]);
-      console.log(acc);
+        else {
+        return acc.concat(currentValue[(currentValue.length) - 1]);
     }
-
-  }, '');
-  return result;
+}
+    console.log(arr.reduce(reducer,''));*/
 }
 
 console.log(decoder('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
